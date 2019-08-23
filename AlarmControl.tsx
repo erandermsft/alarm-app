@@ -98,11 +98,7 @@ import { StyleSheet, Text, View, Button,TextInput, ColorPropType, Alert } from '
       if(this.state.alarmTriggered && this.state.connected){
         return(
         <View>
-          <Text>Alarm triggered</Text>
           <Button title="Reset Alarm" onPress={this.alarmResetButtonPressed.bind(this)} ></Button>
-          <Text >
-              Elapsed:{this.state.alarmStats.elapsed}
-          </Text>
         </View>
         );
       }
@@ -135,7 +131,9 @@ import { StyleSheet, Text, View, Button,TextInput, ColorPropType, Alert } from '
               <View style={styles.statusContainer}>
                   <Text style={styles.formLabel}>Status:</Text><Text>{this.state.connectionState}</Text>
                   <Text style={styles.formLabel}>Last message received:</Text>
-                  <Text>{this.state.lastMessage}</Text>  
+                  <Text>{this.state.lastMessage}</Text>
+                  <Text style={styles.formLabel}>Elapsed:</Text>
+                  <Text>{this.state.alarmStats.elapsed}</Text>  
               </View>
               <View style={styles.alarmContainer}>
                 { this.renderAlarmButton()       }       
@@ -167,7 +165,7 @@ import { StyleSheet, Text, View, Button,TextInput, ColorPropType, Alert } from '
       alignSelf:"stretch",
     },
     statusContainer:{
-      flex:1,
+      flex:2,
       alignSelf:"stretch",
     },
     container: {
